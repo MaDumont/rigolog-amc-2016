@@ -17,4 +17,5 @@
     </string>
     <string name="title_activity_friendlist">Friendlist</string>
     <string name="firebase_url">http://luminous-heat-5138.firebaseio.com/</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 </resources>

@@ -42,12 +42,12 @@ public class Friendlist extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // TODO Auto-generated method stub
 
         switch (item.getItemId()) {
             case R.id.item_home:
                 Toast.makeText(getApplicationContext(), "home selected",
                         Toast.LENGTH_LONG).show();
+                openHomeTab();
                 break;
 
             case R.id.item_friends:
@@ -69,6 +69,10 @@ public class Friendlist extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void openHomeTab(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
     public void openFriendsTab(){
         Intent intent = new Intent(this, Friendlist.class);
         startActivity(intent);
@@ -78,7 +82,7 @@ public class Friendlist extends AppCompatActivity {
         startActivity(intent);
     }
     public void openSettingsTab(){
-        Intent intent = new Intent(this, Settings.class);
+        Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 
