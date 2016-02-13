@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -25,15 +23,12 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Friendlist extends AppCompatActivity {
-<<<<<<< HEAD
 
     private JSONObject JSONFriends;
     private HashMap<String,String> hMapFriends;
     private ArrayList<Friend> FriendsWithBenefits;
 
-=======
     Context context = getBaseContext();
->>>>>>> 6decc9274fc08562094d074869fd1ba072be07f7
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +70,6 @@ public class Friendlist extends AppCompatActivity {
         ListView lv = (ListView) findViewById(R.id.Friendlist_View);
         lv.setAdapter(adapter);
     }
-<<<<<<< HEAD
     public JSONObject getJSONFriends(){
         return this.JSONFriends;
     }
@@ -106,9 +100,7 @@ public class Friendlist extends AppCompatActivity {
         }
         return null;
     }
-=======
 
->>>>>>> 6decc9274fc08562094d074869fd1ba072be07f7
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
