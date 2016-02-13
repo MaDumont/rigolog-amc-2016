@@ -1,13 +1,16 @@
 package com.example.ringolog.ringologapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,8 +25,8 @@ public class Friendlist extends AppCompatActivity {
 
         int image_id = 1;
         ArrayList<Friend> friends = new ArrayList();
-        Friend friend1 = new Friend(null, "Bob");
-        Friend friend2 = new Friend(null, "Roger");
+        Friend friend1 = new Friend(null, "Bob", "challenge");
+        Friend friend2 = new Friend(null, "Roger", "ongoing");
         friends.add(friend1);
         friends.add(friend2);
 
@@ -36,6 +39,47 @@ public class Friendlist extends AppCompatActivity {
 
         getMenuInflater().inflate(R.menu.menu_bottom, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // TODO Auto-generated method stub
+
+        switch (item.getItemId()) {
+            case R.id.item_home:
+                Toast.makeText(getApplicationContext(), "home selected",
+                        Toast.LENGTH_LONG).show();
+                break;
+
+            case R.id.item_friends:
+                Toast.makeText(getApplicationContext(), "friends selected",
+                        Toast.LENGTH_LONG).show();
+                openFriendsTab();
+                break;
+            case R.id.item_profil:
+                Toast.makeText(getApplicationContext(), "profil selected",
+                        Toast.LENGTH_LONG).show();
+                break;
+            case R.id.item_settings:
+                Toast.makeText(getApplicationContext(), "settings selected",
+                        Toast.LENGTH_LONG).show();
+                openSettingsTab();
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void openFriendsTab(){
+        Intent intent = new Intent(this, Friendlist.class);
+        startActivity(intent);
+    }
+    public void openProfilTab(){
+        Intent intent = new Intent(this, Friendlist.class);
+        startActivity(intent);
+    }
+    public void openSettingsTab(){
+        Intent intent = new Intent(this, Settings.class);
+        startActivity(intent);
     }
 
 }

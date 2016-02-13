@@ -8,13 +8,15 @@ import android.media.Image;
 public class Friend {
     private Image profilPicture;
     private String name;
+    private String status;
 
     public Friend() {
     this.name = "Default Name";
     }
 
-    public Friend(Image picture, String name) {
+    public Friend(Image picture, String name, String status) {
         this.name = name;
+        this.status = status;
     }
 
     public String getName() {
@@ -31,5 +33,13 @@ public class Friend {
 
     public void setProfilPicture(Image profilPicture) {
         this.profilPicture = profilPicture;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
