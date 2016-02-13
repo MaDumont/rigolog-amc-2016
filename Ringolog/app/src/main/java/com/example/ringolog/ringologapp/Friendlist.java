@@ -26,7 +26,7 @@ public class Friendlist extends AppCompatActivity {
 
     private JSONObject JSONFriends;
     private HashMap<String,String> hMapFriends;
-    private ArrayList<Friend> FriendsWithBenefits;
+    private ArrayList<Friend> listFriends;
 
     Context context = getBaseContext();
     @Override
@@ -36,19 +36,16 @@ public class Friendlist extends AppCompatActivity {
 
         Firebase.setAndroidContext(this);
         Firebase mFirebaseRef = new Firebase(getResources().getString(R.string.firebase_url));
-        FriendsWithBenefits = new ArrayList<Friend>();
+        listFriends = new ArrayList<Friend>();
         mFirebaseRef.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 for (DataSnapshot messageSnapshot: snapshot.getChildren()) {
                     String name = (String) messageSnapshot.child("fullName").getValue();
                     String status = (String) messageSnapshot.child("status").getValue();
-                    FriendsWithBenefits.add(new Friend(null,name,status));
+                    listFriends.add(new Friend(null, name, status));
 
                 }
-
-                //hMapFriends = (HashMap<String,String>) snapshot.getValue();
-                //System.out.println(hMapFriends);
 
             }
 
@@ -57,16 +54,7 @@ public class Friendlist extends AppCompatActivity {
             }
         });
 
-        //parseJSONToFriends(JSONFriends);
-        //parseHmapToFriends(this.hMapFriends);
-        int image_id = 1;
-        ArrayList<Friend> friends = new ArrayList();
-        Friend friend1 = new Friend(null, "Bob", "challenge");
-        Friend friend2 = new Friend(null, "Roger", "ongoing");
-        friends.add(friend1);
-        friends.add(friend2);
-
-        CustomListAdapter adapter = new CustomListAdapter(this, FriendsWithBenefits);
+        CustomListAdapter adapter = new CustomListAdapter(this, listFriends);
         ListView lv = (ListView) findViewById(R.id.Friendlist_View);
         lv.setAdapter(adapter);
     }
