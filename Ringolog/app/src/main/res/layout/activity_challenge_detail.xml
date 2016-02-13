@@ -33,7 +33,11 @@
         android:id="@+id/cameraBtn"
         android:layout_below="@+id/editTextTime"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp"/>
+        android:layout_marginTop="28dp"
+        android:drawableTop="@drawable/camera3"
+        android:layout_alignParentEnd="false"
+        android:clickable="false"
+        android:height="84dp" />
 
     <TextView
         android:layout_width="wrap_content"
