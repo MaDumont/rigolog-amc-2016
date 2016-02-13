@@ -13,9 +13,19 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class Friendlist extends AppCompatActivity {
+
+    private JSONObject JSONFriends;
+    private HashMap<String,String> hMapFriends;
+    private ArrayList<Friend> FriendsWithBenefits;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,18 +34,29 @@ public class Friendlist extends AppCompatActivity {
 
         Firebase.setAndroidContext(this);
         Firebase mFirebaseRef = new Firebase(getResources().getString(R.string.firebase_url));
-
-        mFirebaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        FriendsWithBenefits = new ArrayList<Friend>();
+        mFirebaseRef.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                Object JSONdata = snapshot.getValue();
-                System.out.println(JSONdata);
+                for (DataSnapshot messageSnapshot: snapshot.getChildren()) {
+                    String name = (String) messageSnapshot.child("fullName").getValue();
+                    String status = (String) messageSnapshot.child("status").getValue();
+                    FriendsWithBenefits.add(new Friend(null,name,status));
+
+                }
+
+                //hMapFriends = (HashMap<String,String>) snapshot.getValue();
+                //System.out.println(hMapFriends);
+
             }
 
             @Override
             public void onCancelled(FirebaseError firebaseError) {
             }
         });
+
+        //parseJSONToFriends(JSONFriends);
+        //parseHmapToFriends(this.hMapFriends);
         int image_id = 1;
         ArrayList<Friend> friends = new ArrayList();
         Friend friend1 = new Friend(null, "Bob", "challenge");
@@ -43,9 +64,39 @@ public class Friendlist extends AppCompatActivity {
         friends.add(friend1);
         friends.add(friend2);
 
-        CustomListAdapter adapter = new CustomListAdapter(this, friends);
+        CustomListAdapter adapter = new CustomListAdapter(this, FriendsWithBenefits);
         ListView lv = (ListView) findViewById(R.id.Friendlist_View);
         lv.setAdapter(adapter);
+    }
+    public JSONObject getJSONFriends(){
+        return this.JSONFriends;
+    }
+    public ArrayList<Friend> parseHmapToFriends(HashMap<String, String> hMapFriends){
+        List<String> listtemp =  new ArrayList<String>(hMapFriends.keySet());
+        ArrayList<Friend> results = new ArrayList<Friend>();
+        for(int i=0;i<listtemp.size(); i++) {
+            System.out.println(listtemp.get(i));
+        }
+        return results;
+    }
+    public ArrayList<Friend> parseJSONToFriends(JSONObject JSONdata){
+        JSONObject obj = JSONdata;
+        System.out.println(obj);
+        JSONArray arr = null;
+        try {
+            arr = obj.getJSONArray("user");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        for (int i = 0; i < arr.length(); i++)
+        {
+            try {
+                System.out.println(arr.getJSONObject(i).getString("fullName"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
