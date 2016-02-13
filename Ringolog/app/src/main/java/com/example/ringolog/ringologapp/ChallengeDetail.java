@@ -89,10 +89,6 @@ public class ChallengeDetail extends AppCompatActivity {
                 finish();
             }
         });
-
-
-
-
     }
 
     private void dispatchTakePictureIntent() {
@@ -134,11 +130,4 @@ public class ChallengeDetail extends AppCompatActivity {
         Log.w("Ringolog", mCurrentPhotoPath);
         return image;
     }
-
-//    private void doneChallenge(View view){
-//        finish();
-//    }
-
-
-
 }

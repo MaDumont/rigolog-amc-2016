@@ -31,6 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/cameraBtn"
+        android:text="Take a picture"
         android:layout_below="@+id/editTextTime"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"/>
@@ -41,7 +42,7 @@
         android:id="@+id/editTextDescription"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:text="Description challenge" />
+        android:text="Challenge description" />
 
     <Button
         android:layout_width="wrap_content"

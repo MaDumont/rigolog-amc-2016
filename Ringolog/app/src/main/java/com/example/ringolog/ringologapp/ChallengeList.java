@@ -58,6 +58,7 @@ public class ChallengeList extends AppCompatActivity {
         ListView lv = (ListView) findViewById(R.id.Challengelist_View);
         lv.setAdapter(adapter);
 
+
         mManager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
         mChannel = mManager.initialize(this, getMainLooper(), null);
         mReceiver = new WiFiDirectBroadcastReceiver(mManager, (Channel) mChannel, this);
@@ -70,7 +71,5 @@ public class ChallengeList extends AppCompatActivity {
 
     }
 
-    protected void onResume(){
 
-    }
 }

@@ -40,7 +40,7 @@ public class Friendlist extends AppCompatActivity {
         mFirebaseRef.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                for (DataSnapshot messageSnapshot: snapshot.getChildren()) {
+                for (DataSnapshot messageSnapshot : snapshot.getChildren()) {
                     String name = (String) messageSnapshot.child("fullName").getValue();
                     String status = (String) messageSnapshot.child("status").getValue();
                     listFriends.add(new Friend(null, name, status));
@@ -100,23 +100,14 @@ public class Friendlist extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.item_home:
-                Toast.makeText(getApplicationContext(), "home selected",
-                        Toast.LENGTH_LONG).show();
                 openHomeTab();
                 break;
 
             case R.id.item_friends:
-                Toast.makeText(getApplicationContext(), "friends selected",
-                        Toast.LENGTH_LONG).show();
-                openFriendsTab();
                 break;
             case R.id.item_profil:
-                Toast.makeText(getApplicationContext(), "profil selected",
-                        Toast.LENGTH_LONG).show();
                 break;
             case R.id.item_settings:
-                Toast.makeText(getApplicationContext(), "settings selected",
-                        Toast.LENGTH_LONG).show();
                 openSettingsTab();
                 break;
         }
@@ -127,18 +118,27 @@ public class Friendlist extends AppCompatActivity {
     public void openHomeTab(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
     public void openFriendsTab(){
         Intent intent = new Intent(this, Friendlist.class);
         startActivity(intent);
+        finish();
     }
     public void openProfilTab(){
         Intent intent = new Intent(this, Friendlist.class);
         startActivity(intent);
+        finish();
     }
     public void openSettingsTab(){
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
+        finish();
     }
 
+    @Override
+    protected void onPause(){
+        finish();
+        super.onPause();
+    }
 }
