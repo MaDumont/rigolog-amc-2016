@@ -15,4 +15,6 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="login_with_password">Login with Password</string>
+    <string name="firebase_url">https://luminous-heat-5138.firebaseio.com/</string>
 </resources>
