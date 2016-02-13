@@ -6,7 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -18,11 +22,28 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setTitle("Ringolog");
 
-        ArrayList<Challenge> challenges = new ArrayList<>();
-        Challenge challenge1 = new Challenge("Buy a lunch", "Help someone");
-        Challenge challenge2 = new Challenge("Give money", "Help someone");
-        challenges.add(challenge1);
-        challenges.add(challenge2);
+        final ArrayList<Challenge> challenges = new ArrayList<Challenge>();
+
+        Firebase mFirebaseRef = new Firebase(getResources().getString(R.string.firebase_url));
+        mFirebaseRef.child("pendingChallenges").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                System.out.println(snapshot.getValue());
+                for (DataSnapshot messageSnapshot : snapshot.getChildren()) {
+                    String challengeTitle = (String) messageSnapshot.child("Title").getValue();
+                    String objective = (String) messageSnapshot.child("Objective").getValue();
+                    String time = (String) messageSnapshot.child("Time").getValue();
+                    int id = Integer.parseInt(messageSnapshot.child("id").getValue().toString());
+                    challenges.add(new Challenge(challengeTitle, objective, time, id));
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+            }
+        });
 
         PersonalChallengeListAdapter adapter = new PersonalChallengeListAdapter(this, challenges);
         ListView lv = (ListView) findViewById(R.id.myChallengeListView);

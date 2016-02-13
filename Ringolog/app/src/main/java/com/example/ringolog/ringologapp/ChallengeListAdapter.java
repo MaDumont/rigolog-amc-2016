@@ -22,7 +22,6 @@ public class ChallengeListAdapter extends ArrayAdapter {
         super(context, R.layout.challengelist_row, itemsArrayList);
         this.context = context;
         this.itemsArrayList = itemsArrayList;
-
     }
 
     @Override
@@ -32,30 +31,36 @@ public class ChallengeListAdapter extends ArrayAdapter {
 
         // 2. Get rowView from inflater
         View challengelist_row = inflater.inflate(R.layout.challengelist_row, parent, false);
+        CheckBox challengeBox = (CheckBox) challengelist_row.findViewById(R.id.checkBox);
+
+        View challengelistSelect_row = inflater.inflate(R.layout.activity_challenge_list, parent, false);
 
         // 3. Get the two text view from the rowView
-        CheckBox challengeBox = (CheckBox) challengelist_row.findViewById(R.id.checkBox);
-        Button sendButton = (Button) challengelist_row.findViewById(R.id.sendButton);
-        Button cancelButton = (Button) challengelist_row.findViewById(R.id.cancelButton);
 
+        Button sendButton = (Button) challengelistSelect_row.findViewById(R.id.sendButton);
+        Button cancelButton = (Button) challengelistSelect_row.findViewById(R.id.cancelButton);
         // 4. Set the text for textView
         challengeBox.setText(itemsArrayList.get(position).getChallengeTitle());
         //String title = itemsArrayList.get(position).toString();
         //labelView.setText(title);
-        /*
+
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
             }
         });
+
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                
             }
         });
 
-        */
+
         return challengelist_row;
     }
+
 }
