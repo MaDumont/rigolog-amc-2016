@@ -49,22 +49,23 @@ public class CustomListAdapter extends ArrayAdapter {
         name.setText(friendName);
         ChallengeButton.setText(friendStatus);
         String message = "";
-        message += " " + friendName;
-        final String finalMessage = message;
+        //message += " " + friendStatus;
+        final String action = friendStatus;
         ChallengeButton.setOnClickListener(new View.OnClickListener() {
             @Override
-
             public void onClick(View v) {
-                Toast.makeText(context, ""+ finalMessage,
-                        Toast.LENGTH_LONG).show();
-                open();
+                //Toast.makeText(context, ""+ finalMessage,
+                //        Toast.LENGTH_LONG).show();
+                if(action.equals("challenge")) {
+                    openChallenge();
+                }
             }
         });
         return friendlist_row;
     }
 
-private void open(){
-    Intent intent = new Intent(context, MainActivity.class);
+private void openChallenge(){
+    Intent intent = new Intent(context, ChallengeList.class);
     context.startActivity(intent);
 }
 }

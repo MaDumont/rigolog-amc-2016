@@ -6,7 +6,8 @@ package com.example.ringolog.ringologapp;
 public class Challenge {
     private String challengeTitle;
     private String objective;
-    private int time;
+
+    private String time;
     private int id;
 
     public Challenge(){
@@ -16,7 +17,9 @@ public class Challenge {
         this.challengeTitle = title;
         this.objective = objective;
     }
-    public Challenge(String title, String objective,int time, int id){
+
+
+    public Challenge(String title, String objective,String time, int id){
         this.challengeTitle = title;
         this.objective = objective;
         this.time = time;
@@ -40,11 +43,11 @@ public class Challenge {
         this.objective = objective;
     }
 
-    public int getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(int time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

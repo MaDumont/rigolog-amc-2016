@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("Ringolog");
 
         ArrayList<Challenge> challenges = new ArrayList<>();
         Challenge challenge1 = new Challenge("Buy a lunch", "Help someone");
@@ -39,23 +40,23 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.item_home:
-                Toast.makeText(getApplicationContext(), "home selected",
-                        Toast.LENGTH_LONG).show();
-                openHomeTab();
+                //Toast.makeText(getApplicationContext(), "home selected",
+                  //      Toast.LENGTH_LONG).show();
+                //openHomeTab();
                 break;
 
             case R.id.item_friends:
-                Toast.makeText(getApplicationContext(), "friends selected",
-                        Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "friends selected",
+                  //      Toast.LENGTH_LONG).show();
                 openFriendsTab();
                 break;
             case R.id.item_profil:
-                Toast.makeText(getApplicationContext(), "profil selected",
-                        Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "profil selected",
+                    //    Toast.LENGTH_LONG).show();
                 break;
             case R.id.item_settings:
-                Toast.makeText(getApplicationContext(), "settings selected",
-                        Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "settings selected",
+                  //      Toast.LENGTH_LONG).show();
                 openSettingsTab();
                 break;
         }
@@ -65,18 +66,30 @@ public class MainActivity extends AppCompatActivity {
 
     public void openHomeTab(){
         Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        finish();
     }
     public void openFriendsTab(){
         Intent intent = new Intent(this, Friendlist.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        finish();
     }
     public void openProfilTab(){
         Intent intent = new Intent(this, Friendlist.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        finish();
     }
     public void openSettingsTab(){
         Intent intent = new Intent(this, SettingsActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        finish();
     }
 }

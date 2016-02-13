@@ -10,10 +10,6 @@
         android:layout_width="match_parent" android:theme="@style/AppTheme.AppBarOverlay"
         android:id="@+id/view2">
 
-        <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
-            android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary" app:popupTheme="@style/AppTheme.PopupOverlay" />
-
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_challenge_detail" />
@@ -22,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editTextTime"
-        android:text="@string/time"
+        android:text=""
         android:layout_marginTop="36dp"
         android:layout_below="@+id/view2"
         android:layout_centerHorizontal="true" />
@@ -31,6 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/cameraBtn"
+        android:text="Take a picture"
         android:layout_below="@+id/editTextTime"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
@@ -45,7 +42,7 @@
         android:id="@+id/editTextDescription"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:text="Description challenge" />
+        android:text="Challenge description" />
 
     <Button
         android:layout_width="wrap_content"

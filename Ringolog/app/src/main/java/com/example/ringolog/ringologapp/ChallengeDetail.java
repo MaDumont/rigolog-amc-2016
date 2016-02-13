@@ -29,17 +29,8 @@ public class ChallengeDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_challenge_detail);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Titre challenge");
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        setTitle("My Challenge");
+
 //        Chronometer timer = (Chronometer)findViewById(R.id.chronometer);
 //        timer.setFormat("");
         final TextView timer = (TextView)findViewById(R.id.editTextTime);
@@ -89,10 +80,6 @@ public class ChallengeDetail extends AppCompatActivity {
                 finish();
             }
         });
-
-
-
-
     }
 
     private void dispatchTakePictureIntent() {
@@ -134,13 +121,5 @@ public class ChallengeDetail extends AppCompatActivity {
         Log.w("Ringolog", mCurrentPhotoPath);
         return image;
     }
-
-//    private void doneChallenge(View view){
-//        finish();
-//    }
-
-
-
-
 
 }

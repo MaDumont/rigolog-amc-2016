@@ -38,6 +38,7 @@ public class PersonalChallengeListAdapter extends ArrayAdapter {
         // 3. Get the two text view from the rowView
         TextView challengeBox = (TextView) personal_challenge_row.findViewById(R.id.textName);
         //ImageView imageView = (ImageView) friendlist_row.findViewById(R.id.icon);
+
         Button doChallengeButton = (Button) personal_challenge_row.findViewById(R.id.button);
 
         // 4. Set the text for textView
@@ -49,19 +50,22 @@ public class PersonalChallengeListAdapter extends ArrayAdapter {
             public void onClick(View v) {
                 Toast.makeText(context, "" + description,
                         Toast.LENGTH_LONG).show();
-                openChallenge(id);
+                open(id);
             }
         });
 
         //String title = itemsArrayList.get(position).toString();
         //labelView.setText(title);
+
+
         return personal_challenge_row;
     }
 
-    private void openChallenge(int id){
+    private void open(int id){
         Intent intent = new Intent(context, ChallengeDetail.class);
         intent.putExtra("ChallengeID", id);
         context.startActivity(intent);
+
 
     }
 }
