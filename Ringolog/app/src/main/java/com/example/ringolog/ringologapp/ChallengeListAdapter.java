@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
@@ -35,12 +36,25 @@ public class ChallengeListAdapter extends ArrayAdapter {
 
         // 3. Get the two text view from the rowView
         CheckBox challengeBox = (CheckBox) challengelist_row.findViewById(R.id.checkBox);
-        //ImageView imageView = (ImageView) friendlist_row.findViewById(R.id.icon);
+        Button sendButton = (Button) challengelist_row.findViewById(R.id.sendButton);
+        Button cancelButton = (Button) challengelist_row.findViewById(R.id.cancelButton);
 
         // 4. Set the text for textView
         challengeBox.setText(itemsArrayList.get(position).getChallengeTitle());
         //String title = itemsArrayList.get(position).toString();
         //labelView.setText(title);
+
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
         return challengelist_row;
     }
 }
