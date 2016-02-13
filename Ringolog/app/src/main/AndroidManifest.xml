@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ringolog.ringologapp" >
+    package="com.example.ringolog.ringologapp">
 
     <uses-sdk android:minSdkVersion="15" />
 
@@ -8,7 +8,9 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -24,18 +26,20 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light"
             android:uiOptions="splitActionBarWhenNarrow">
 
-            <!--<intent-filter>
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
 
         </activity>
         <activity
@@ -48,7 +52,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Friendlist"
             android:label="@string/title_activity_friendlist"
@@ -67,32 +70,37 @@
                 android:name="android.support.UI_OPTIONS"
                 android:value="splitActionBarWhenNarrow" />
         </activity>
-    <activity android:name=".ChallengeList"
-        android:theme="@style/Theme.AppCompat.Light"
-        android:uiOptions="splitActionBarWhenNarrow">
-        <meta-data
-            android:name="android.support.UI_OPTIONS"
-            android:value="splitActionBarWhenNarrow" />
-        <!--
+        <activity
+            android:name=".ChallengeList"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:uiOptions="splitActionBarWhenNarrow">
+            <meta-data
+                android:name="android.support.UI_OPTIONS"
+                android:value="splitActionBarWhenNarrow" />
+            <!--
        <intent-filter>
            <action android:name="android.intent.action.MAIN" />
 
            <category android:name="android.intent.category.LAUNCHER" />
        </intent-filter>
-        -->
-    </activity>
-    <activity android:name=".Settings"></activity>
-    <activity
-        android:name=".SettingsActivity"
-        android:label="@string/title_activity_settings"
-        android:theme="@style/Theme.AppCompat.Light"
-        android:uiOptions="splitActionBarWhenNarrow"></activity>
-    <activity
-        android:name=".ChallengeDetail"
-        android:label="@string/title_activity_challenge_detail"
-        android:theme="@style/Theme.AppCompat.Light"
-        android:uiOptions="splitActionBarWhenNarrow">
-    </activity>
+            -->
+        </activity>
+        <activity android:name=".Settings" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:uiOptions="splitActionBarWhenNarrow" />
+        <activity
+            android:name=".ChallengeDetail"
+            android:label="@string/title_activity_challenge_detail"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:uiOptions="splitActionBarWhenNarrow"></activity>
+        <activity
+            android:name=".Profil"
+            android:label="@string/title_activity_profil"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:uiOptions="splitActionBarWhenNarrow"></activity>
     </application>
 
 </manifest>

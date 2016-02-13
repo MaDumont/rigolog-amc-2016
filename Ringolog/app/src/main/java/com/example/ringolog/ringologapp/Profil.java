@@ -9,15 +9,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-public class SettingsActivity extends AppCompatActivity {
+public class Profil extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings2);
-        setTitle("Setting");
+        setContentView(R.layout.activity_profil);
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -37,9 +36,9 @@ public class SettingsActivity extends AppCompatActivity {
                 openFriendsTab();
                 break;
             case R.id.item_profil:
-                openProfilTab();
                 break;
             case R.id.item_settings:
+                openSettingsTab();
                 break;
         }
 
@@ -57,7 +56,7 @@ public class SettingsActivity extends AppCompatActivity {
         finish();
     }
     public void openProfilTab(){
-        Intent intent = new Intent(this, Profil.class);
+        Intent intent = new Intent(this, Friendlist.class);
         startActivity(intent);
         finish();
     }
@@ -65,5 +64,11 @@ public class SettingsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    protected void onPause(){
+        finish();
+        super.onPause();
     }
 }

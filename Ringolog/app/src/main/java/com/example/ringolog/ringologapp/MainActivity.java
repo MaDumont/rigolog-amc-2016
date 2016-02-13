@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setTitle("Ringolog");
 
+<<<<<<< HEAD
         final ArrayList<Challenge> challenges = new ArrayList<Challenge>();
 
         Firebase mFirebaseRef = new Firebase(getResources().getString(R.string.firebase_url));
@@ -44,6 +45,17 @@ public class MainActivity extends AppCompatActivity {
             public void onCancelled(FirebaseError firebaseError) {
             }
         });
+=======
+        ArrayList<Challenge> challenges = new ArrayList<>();
+        Challenge challenge1 = new Challenge("Buy a lunch", "Help someone");
+        Challenge challenge2 = new Challenge("Donate money", "Help someone");
+        Challenge challenge3 = new Challenge("Save the world", "Help someone");
+        Challenge challenge4 = new Challenge("Bring peace", "Help someone");
+        challenges.add(challenge1);
+        challenges.add(challenge2);
+        challenges.add(challenge3);
+        challenges.add(challenge4);
+>>>>>>> 5a9fb30ae67fc38281d78ca6958e672244931331
 
         PersonalChallengeListAdapter adapter = new PersonalChallengeListAdapter(this, challenges);
         ListView lv = (ListView) findViewById(R.id.myChallengeListView);
@@ -74,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.item_profil:
                 //Toast.makeText(getApplicationContext(), "profil selected",
                     //    Toast.LENGTH_LONG).show();
+                openProfilTab();
                 break;
             case R.id.item_settings:
                 //Toast.makeText(getApplicationContext(), "settings selected",
@@ -100,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
     public void openProfilTab(){
-        Intent intent = new Intent(this, Friendlist.class);
+        Intent intent = new Intent(this, Profil.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);

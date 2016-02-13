@@ -106,6 +106,7 @@ public class Friendlist extends AppCompatActivity {
             case R.id.item_friends:
                 break;
             case R.id.item_profil:
+                openProfilTab();
                 break;
             case R.id.item_settings:
                 openSettingsTab();
@@ -126,7 +127,7 @@ public class Friendlist extends AppCompatActivity {
         finish();
     }
     public void openProfilTab(){
-        Intent intent = new Intent(this, Friendlist.class);
+        Intent intent = new Intent(this, Profil.class);
         startActivity(intent);
         finish();
     }
