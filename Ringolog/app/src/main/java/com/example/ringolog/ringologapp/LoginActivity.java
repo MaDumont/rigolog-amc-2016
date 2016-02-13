@@ -189,10 +189,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            showProgress(true);
-            //attemptLoginToFirebase(email,password);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+            //showProgress(true);
+            attemptLoginToFirebase(email, password);
+            //mAuthTask = new UserLoginTask(email, password);
+            //mAuthTask.execute((Void) null);
+            //Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            //startActivity(intent);
         }
     }
     private void attemptLoginToFirebase(String email, String password){
@@ -202,13 +204,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mFirebaseRef.authWithPassword(email, password, new Firebase.AuthResultHandler() {
             @Override
             public void onAuthenticated(AuthData authData) {
-                //System.out.println("good job");
+                showProgress(true);
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
             }
 
             @Override
             public void onAuthenticationError(FirebaseError firebaseError) {
+                View focusView = mEmailView;
+                focusView.requestFocus();
                 System.out.print(getString(R.string.error_invalid_password));
                 // there was an error
             }

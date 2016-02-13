@@ -2,15 +2,16 @@ package com.example.ringolog.ringologapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -21,8 +22,20 @@ public class Friendlist extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friendlist);
 
+        Firebase.setAndroidContext(this);
+        Firebase mFirebaseRef = new Firebase(getResources().getString(R.string.firebase_url));
 
+        mFirebaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                Object JSONdata = snapshot.getValue();
+                System.out.println(JSONdata);
+            }
 
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+            }
+        });
         int image_id = 1;
         ArrayList<Friend> friends = new ArrayList();
         Friend friend1 = new Friend(null, "Bob", "challenge");
