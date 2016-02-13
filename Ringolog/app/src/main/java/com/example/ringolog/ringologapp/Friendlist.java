@@ -47,9 +47,6 @@ public class Friendlist extends AppCompatActivity {
 
                 }
 
-                //hMapFriends = (HashMap<String,String>) snapshot.getValue();
-                //System.out.println(hMapFriends);
-
             }
 
             @Override
