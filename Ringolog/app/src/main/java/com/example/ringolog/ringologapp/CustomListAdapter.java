@@ -2,13 +2,16 @@ package com.example.ringolog.ringologapp;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -17,6 +20,7 @@ import java.util.ArrayList;
  */
 public class CustomListAdapter extends ArrayAdapter {
     Context context;
+    String friendName;
     ArrayList<Friend> itemsArrayList;
     public CustomListAdapter(Activity context, ArrayList<Friend> itemsArrayList) {
         super(context, R.layout.friendlist_row, itemsArrayList);
@@ -27,7 +31,7 @@ public class CustomListAdapter extends ArrayAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        String friendName = itemsArrayList.get(position).getName();
+        friendName = itemsArrayList.get(position).getName();
         String friendStatus = itemsArrayList.get(position).getStatus();
         // 1. Create inflater
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -44,10 +48,25 @@ public class CustomListAdapter extends ArrayAdapter {
         // 4. Set the text for textView
         name.setText(friendName);
         ChallengeButton.setText(friendStatus);
-
-        //String title = itemsArrayList.get(position).toString();
-        //labelView.setText(title);
+        String message = "";
+        //message += " " + friendStatus;
+        final String action = friendStatus;
+        ChallengeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(context, ""+ finalMessage,
+                //        Toast.LENGTH_LONG).show();
+                if(action.equals("challenge")) {
+                    openChallenge();
+                }
+            }
+        });
         return friendlist_row;
     }
+
+private void openChallenge(){
+    Intent intent = new Intent(context, ChallengeList.class);
+    context.startActivity(intent);
+}
 }
 
