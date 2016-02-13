@@ -6,35 +6,37 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class Friendlist extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_friendlist);
 
-        ArrayList<Challenge> challenges = new ArrayList<>();
-        Challenge challenge1 = new Challenge("Buy a lunch", "Help someone");
-        Challenge challenge2 = new Challenge("Give money", "Help someone");
-        challenges.add(challenge1);
-        challenges.add(challenge2);
 
-        PersonalChallengeListAdapter adapter = new PersonalChallengeListAdapter(this, challenges);
-        ListView lv = (ListView) findViewById(R.id.myChallengeListView);
+
+        int image_id = 1;
+        ArrayList<Friend> friends = new ArrayList();
+        Friend friend1 = new Friend(null, "Bob", "challenge");
+        Friend friend2 = new Friend(null, "Roger", "ongoing");
+        friends.add(friend1);
+        friends.add(friend2);
+
+        CustomListAdapter adapter = new CustomListAdapter(this, friends);
+        ListView lv = (ListView) findViewById(R.id.Friendlist_View);
         lv.setAdapter(adapter);
-
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         getMenuInflater().inflate(R.menu.menu_bottom, menu);
         return super.onCreateOptionsMenu(menu);
     }
@@ -83,4 +85,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
+
 }
