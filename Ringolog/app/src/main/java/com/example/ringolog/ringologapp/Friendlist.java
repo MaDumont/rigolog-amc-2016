@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ListView;
 
@@ -29,6 +30,12 @@ public class Friendlist extends AppCompatActivity {
         CustomListAdapter adapter = new CustomListAdapter(this, friends);
         ListView lv = (ListView) findViewById(R.id.Friendlist_View);
         lv.setAdapter(adapter);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_bottom, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
 }

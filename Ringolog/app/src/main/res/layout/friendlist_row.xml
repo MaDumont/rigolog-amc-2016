@@ -16,7 +16,7 @@
             android:id="@+id/list_image"
             android:layout_width="50dip"
             android:layout_height="50dip"
-            android:src="@drawable/testprofil"/>
+            android:src="@drawable/user168"/>
 
         <TextView
             android:layout_width="wrap_content"
