@@ -28,7 +28,7 @@ public class ChallengeList extends AppCompatActivity {
                     String challengeTitle = (String) messageSnapshot.child("Title").getValue();
                     String objective = (String) messageSnapshot.child("Objective").getValue();
                     String time = (String) messageSnapshot.child("Time").getValue();
-                    int id = (int) messageSnapshot.child("id").getValue();
+                    int id = Integer.parseInt(messageSnapshot.child("id").getValue().toString());
                     ChallengesWithBenefits.add(new Challenge(challengeTitle, objective, time, id));
 
                 }

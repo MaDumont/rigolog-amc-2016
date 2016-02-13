@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -43,7 +42,7 @@ public class ChallengeListAdapter extends ArrayAdapter {
         challengeBox.setText(itemsArrayList.get(position).getChallengeTitle());
         //String title = itemsArrayList.get(position).toString();
         //labelView.setText(title);
-
+        /*
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +54,8 @@ public class ChallengeListAdapter extends ArrayAdapter {
             public void onClick(View v) {
             }
         });
+
+        */
         return challengelist_row;
     }
 }
