@@ -15,6 +15,10 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="title_activity_challenge_detail">ChallengeDetail</string>
+    <string name="time">TIMEREMAINING</string>
+    <string name="title_activity_custom__camera">Custom_CameraActivity</string>
+    <string name="title_activity_camera_preview">CameraPreview</string>
     <string name="title_activity_friendlist">Friendlist</string>
     <string name="firebase_url">http://luminous-heat-5138.firebaseio.com/</string>
     <string name="title_activity_settings">SettingsActivity</string>
