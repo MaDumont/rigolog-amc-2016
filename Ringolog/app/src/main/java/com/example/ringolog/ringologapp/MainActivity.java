@@ -1,5 +1,6 @@
 package com.example.ringolog.ringologapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,6 +10,9 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,30 +20,63 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        ArrayList<Challenge> challenges = new ArrayList<>();
+        Challenge challenge1 = new Challenge("Buy a lunch", "Help someone");
+        Challenge challenge2 = new Challenge("Give money", "Help someone");
+        challenges.add(challenge1);
+        challenges.add(challenge2);
+
+        PersonalChallengeListAdapter adapter = new PersonalChallengeListAdapter(this, challenges);
+        ListView lv = (ListView) findViewById(R.id.myChallengeListView);
+        lv.setAdapter(adapter);
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+        getMenuInflater().inflate(R.menu.menu_bottom, menu);
+        return super.onCreateOptionsMenu(menu);
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        // TODO Auto-generated method stub
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.item_home:
+                Toast.makeText(getApplicationContext(), "home selected",
+                        Toast.LENGTH_LONG).show();
+                break;
+
+            case R.id.item_friends:
+                Toast.makeText(getApplicationContext(), "friends selected",
+                        Toast.LENGTH_LONG).show();
+                openFriendsTab();
+                break;
+            case R.id.item_profil:
+                Toast.makeText(getApplicationContext(), "profil selected",
+                        Toast.LENGTH_LONG).show();
+                break;
+            case R.id.item_settings:
+                Toast.makeText(getApplicationContext(), "settings selected",
+                        Toast.LENGTH_LONG).show();
+                openSettingsTab();
+                break;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void openFriendsTab(){
+        Intent intent = new Intent(this, Friendlist.class);
+        startActivity(intent);
+    }
+    public void openProfilTab(){
+        Intent intent = new Intent(this, Friendlist.class);
+        startActivity(intent);
+    }
+    public void openSettingsTab(){
+        Intent intent = new Intent(this, Settings.class);
+        startActivity(intent);
     }
 }
