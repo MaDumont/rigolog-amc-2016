@@ -14,7 +14,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name"
+        android:text="Philippe Le"
         android:id="@+id/textView2"
         android:layout_centerVertical="true"
         android:layout_toStartOf="@+id/imageView"
@@ -23,7 +23,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Challenge completed"
+        android:text="Challenge completed : 12"
         android:id="@+id/textView3"
         android:layout_below="@+id/textView2"
         android:layout_alignStart="@+id/textView2" />
@@ -31,7 +31,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ongoing activities"
+        android:text="Ongoing activities : 1"
         android:id="@+id/textView4"
         android:layout_below="@+id/textView3"
         android:layout_alignStart="@+id/textView3" />
