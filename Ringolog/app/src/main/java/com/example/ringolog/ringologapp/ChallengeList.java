@@ -1,9 +1,5 @@
 package com.example.ringolog.ringologapp;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.IntentFilter;
-import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
@@ -13,16 +9,10 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
-import java.nio.channels.Channel;
 import java.util.ArrayList;
 
 public class ChallengeList extends AppCompatActivity {
     private ArrayList<Challenge> ChallengesWithBenefits;
-
-    WifiP2pManager mManager;
-    WifiP2pManager.Channel mChannel;
-    BroadcastReceiver mReceiver;
-    IntentFilter mIntentFilter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,17 +48,6 @@ public class ChallengeList extends AppCompatActivity {
         ChallengeListAdapter adapter = new ChallengeListAdapter(this, ChallengesWithBenefits);
         ListView lv = (ListView) findViewById(R.id.Challengelist_View);
         lv.setAdapter(adapter);
-
-
-        mManager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
-        mChannel = mManager.initialize(this, getMainLooper(), null);
-        mReceiver = new WiFiDirectBroadcastReceiver(mManager, (Channel) mChannel, this);
-
-        mIntentFilter = new IntentFilter();
-        mIntentFilter.addAction(WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION);
-        mIntentFilter.addAction(WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION);
-        mIntentFilter.addAction(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION);
-        mIntentFilter.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
 
     }
 
