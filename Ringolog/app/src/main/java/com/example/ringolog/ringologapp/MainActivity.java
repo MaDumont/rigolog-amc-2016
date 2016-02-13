@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("Ringolog");
 
         ArrayList<Challenge> challenges = new ArrayList<>();
         Challenge challenge1 = new Challenge("Buy a lunch", "Help someone");
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.item_home:
                 //Toast.makeText(getApplicationContext(), "home selected",
                   //      Toast.LENGTH_LONG).show();
-                openHomeTab();
+                //openHomeTab();
                 break;
 
             case R.id.item_friends:

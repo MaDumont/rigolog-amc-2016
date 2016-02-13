@@ -27,12 +27,12 @@ public class Friendlist extends AppCompatActivity {
     private JSONObject JSONFriends;
     private HashMap<String,String> hMapFriends;
     private ArrayList<Friend> listFriends;
-
     Context context = getBaseContext();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friendlist);
+        setTitle("Friends");
 
         Firebase.setAndroidContext(this);
         Firebase mFirebaseRef = new Firebase(getResources().getString(R.string.firebase_url));
