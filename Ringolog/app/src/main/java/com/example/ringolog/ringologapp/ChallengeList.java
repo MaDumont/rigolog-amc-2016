@@ -1,8 +1,13 @@
 package com.example.ringolog.ringologapp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -12,6 +17,8 @@ import com.firebase.client.ValueEventListener;
 import java.util.ArrayList;
 
 public class ChallengeList extends AppCompatActivity {
+    Context context;
+
     private ArrayList<Challenge> ChallengesWithBenefits;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +55,30 @@ public class ChallengeList extends AppCompatActivity {
         ChallengeListAdapter adapter = new ChallengeListAdapter(this, ChallengesWithBenefits);
         ListView lv = (ListView) findViewById(R.id.Challengelist_View);
         lv.setAdapter(adapter);
+
+        Button send = (Button) findViewById(R.id.sendButton);
+        send.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                Toast.makeText(getApplicationContext(), "Challenge has been sent successfully.",
+                            Toast.LENGTH_LONG).show();
+                        startActivity(intent);
+            }
+        });
+
+        Button cancel = (Button) findViewById(R.id.cancelButton);
+        cancel.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getBaseContext(), Friendlist.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
