@@ -16,14 +16,17 @@ public class Friendlist extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friendlist);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+
 
         int image_id = 1;
-        ArrayList<String> textList = new ArrayList();
-        textList.add("test");
-        textList.add("test2");
-        CustomListAdapter adapter = new CustomListAdapter(this, textList);
+        ArrayList<Friend> friends = new ArrayList();
+        Friend friend1 = new Friend(null, "Bob");
+        Friend friend2 = new Friend(null, "Roger");
+        friends.add(friend1);
+        friends.add(friend2);
+
+        CustomListAdapter adapter = new CustomListAdapter(this, friends);
         ListView lv = (ListView) findViewById(R.id.Friendlist_View);
         lv.setAdapter(adapter);
     }

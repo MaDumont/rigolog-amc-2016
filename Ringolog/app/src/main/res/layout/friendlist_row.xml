@@ -4,12 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout android:id="@+id/thumbnail"
-        android:layout_width="wrap_content"
+    <RelativeLayout android:id="@+id/thumbnail"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="3dip"
-        android:layout_alignParentLeft="true"
-        android:layout_marginRight="5dip">
+        android:layout_marginRight="5dip"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true">
 
         <ImageView
             android:id="@+id/list_image"
@@ -21,12 +22,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nom de la personne"
-            android:id="@+id/textName"/>
+            android:id="@+id/textName"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/list_image" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="148dp"
             android:layout_height="wrap_content"
-            android:text="Challenge"/>
+            android:layout_alignParentEnd="true"
+            android:text="Challenge"
+            android:id="@+id/button" />
 
-    </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>

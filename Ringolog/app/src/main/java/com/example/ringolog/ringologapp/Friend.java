@@ -6,8 +6,8 @@ import android.media.Image;
  * Created by Chou on 2016-02-13.
  */
 public class Friend {
-    Image profilPicture;
-    String name;
+    private Image profilPicture;
+    private String name;
 
     public Friend() {
     this.name = "Default Name";

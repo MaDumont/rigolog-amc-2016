@@ -16,10 +16,11 @@ import java.util.ArrayList;
  */
 public class CustomListAdapter extends ArrayAdapter {
     Context context;
-
-    public CustomListAdapter(Activity context, ArrayList<String> itemsArrayList) {
+    ArrayList<Friend> itemsArrayList;
+    public CustomListAdapter(Activity context, ArrayList<Friend> itemsArrayList) {
         super(context, R.layout.friendlist_row, itemsArrayList);
         this.context = context;
+        this.itemsArrayList = itemsArrayList;
 
     }
 
@@ -36,7 +37,7 @@ public class CustomListAdapter extends ArrayAdapter {
         //ImageView imageView = (ImageView) friendlist_row.findViewById(R.id.icon);
 
         // 4. Set the text for textView
-        name.setText("test");
+        name.setText(itemsArrayList.get(position).getName());
         //String title = itemsArrayList.get(position).toString();
         //labelView.setText(title);
         return friendlist_row;
