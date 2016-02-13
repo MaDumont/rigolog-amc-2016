@@ -31,7 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:text="Challenge"
-            android:id="@+id/button" />
+            android:id="@+id/button"
+            android:onClick="click"/>
 
     </RelativeLayout>
 </RelativeLayout>

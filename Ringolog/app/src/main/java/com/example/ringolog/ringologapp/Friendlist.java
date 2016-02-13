@@ -1,10 +1,13 @@
 package com.example.ringolog.ringologapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -16,7 +19,7 @@ import com.firebase.client.ValueEventListener;
 import java.util.ArrayList;
 
 public class Friendlist extends AppCompatActivity {
-
+    Context context = getBaseContext();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +50,7 @@ public class Friendlist extends AppCompatActivity {
         ListView lv = (ListView) findViewById(R.id.Friendlist_View);
         lv.setAdapter(adapter);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
